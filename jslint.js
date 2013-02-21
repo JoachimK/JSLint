@@ -187,6 +187,8 @@
 /*jslint
     es5: true, evil: true, nomen: true, regexp: true, todo: true
 */
+/*global define*/
+
 
 // The current option set is
 
@@ -339,7 +341,7 @@
 // value is the JSLINT function itself. That function is also an object that
 // can contain data and other functions.
 
-var JSLINT = (function () {
+define(function (require, exports, module) {
     'use strict';
 
     function array_to_object(array, value) {
@@ -6546,4 +6548,4 @@ klass:              do {
     itself.edition = '2013-02-18';
 
     return itself;
-}());
+});
