@@ -185,7 +185,7 @@
 // For example:
 
 /*jslint
-    es5: true, evil: true, nomen: true, regexp: true, todo: true
+    es5: true, evil: true, nomen: true, regexp: true
 */
 /*global define*/
 
@@ -356,7 +356,8 @@ define(function (require, exports, module) {
     }
 
 
-    var adsafe_id,      // The widget's ADsafe id.
+    var JSLINT,         // The variable to hold the JSLINT function as soon as it is defined
+        adsafe_id,      // The widget's ADsafe id.
         adsafe_may,     // The widget may load approved scripts.
         adsafe_top,     // At the top of the widget script.
         adsafe_went,    // ADSAFE.go has been called.
@@ -6547,5 +6548,6 @@ klass:              do {
 
     itself.edition = '2013-02-18';
 
-    return itself;
+    JSLINT = itself;
+    return JSLINT;
 });
