@@ -185,7 +185,7 @@
 // For example:
 
 /*jslint
-    es5: true, evil: true, nomen: true, regexp: true
+    es5: true, evil: true, nomen: true, regexp: true, todo: true
 */
 /*global define*/
 
