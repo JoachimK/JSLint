@@ -294,7 +294,7 @@
     lib, line, 'line-height', link, 'list-style', 'list-style-image',
     'list-style-position', 'list-style-type', map, margin, 'margin-bottom',
     'margin-left', 'margin-right', 'margin-top', mark, 'marker-offset', match,
-    'max-height', 'max-width', maxerr, maxlen, menu, message, meta, meter,
+    'max-height', 'max-width', maxerr, maxlen, menu, message, message_id, meta, meter,
     'min-height', 'min-width', missing_a, missing_a_after_b, missing_option,
     missing_property, missing_space_a_b, missing_url, missing_use_strict, mm,
     mode, move_invocation, move_var, n, name, name_function, nav,
@@ -1149,6 +1149,7 @@ define(function (require, exports, module) {
         character = offender.from || 0;
         warning = {
             id: '(error)',
+            message_id: bundle[message] ? message : undefined,
             raw: bundle[message] || message,
             evidence: lines[line - 1] || '',
             line: line,
