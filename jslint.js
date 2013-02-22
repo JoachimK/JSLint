@@ -237,7 +237,7 @@
     '(arguments)', '(begin)', '(breakage)', '(context)', '(error)',
     '(identifier)', '(level)', '(line)', '(loopage)', '(name)', '(params)',
     '(scope)', '(token)', '(vars)', '(verb)', '*', '+', '-', '/', '<', '<=',
-    '==', '===', '>', '>=', ADSAFE, Array, Date, Object, '\\', a, a_label,
+    '==', '===', '>', '>=', ADSAFE, Array, Date, Function, Object, '\\', a, a_label,
     a_not_allowed, a_not_defined, a_scope, abbr, acronym, address, adsafe,
     adsafe_a, adsafe_autocomplete, adsafe_bad_id, adsafe_div, adsafe_fragment,
     adsafe_go, adsafe_html, adsafe_id, adsafe_id_go, adsafe_lib,
