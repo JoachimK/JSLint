@@ -1508,7 +1508,7 @@ define(function (require, exports, module) {
                     if (c < ' ') {
                         warn_at('control_a', line, from + length, String(c));
                     } else if (c === '<') {
-                        warn_at(bundle.unexpected_a, line, from + length, '\\');
+                        warn_at('unexpected_a', line, from + length, '\\');
                     }
                     length += 1;
                     break;
@@ -1524,7 +1524,7 @@ define(function (require, exports, module) {
                             length += 1;
                             break;
                         default:
-                            warn_at(bundle.expected_a_b, line, from + length,
+                            warn_at('expected_a_b', line, from + length,
                                 ':', source_row.charAt(length));
                         }
                     } else {
@@ -1591,9 +1591,9 @@ klass:              do {
                         case '\\':
                             c = source_row.charAt(length);
                             if (c < ' ') {
-                                warn_at(bundle.control_a, line, from + length, String(c));
+                                warn_at('control_a', line, from + length, String(c));
                             } else if (c === '<') {
-                                warn_at(bundle.unexpected_a, line, from + length, '\\');
+                                warn_at('unexpected_a', line, from + length, '\\');
                             }
                             length += 1;
                             bit = true;
@@ -1606,7 +1606,7 @@ klass:              do {
                             if (xmode === 'script') {
                                 c = source_row.charAt(length);
                                 if (c === '!' || c === '/') {
-                                    warn_at(bundle.html_confusion_a, line,
+                                    warn_at('html_confusion_a', line,
                                         from + length, c);
                                 }
                             }
@@ -1634,7 +1634,7 @@ klass:              do {
                     if (xmode === 'script') {
                         c = source_row.charAt(length);
                         if (c === '!' || c === '/') {
-                            warn_at(bundle.html_confusion_a, line, from + length, c);
+                            warn_at('html_confusion_a', line, from + length, c);
                         }
                     }
                     break;
@@ -1653,7 +1653,7 @@ klass:              do {
                         length += 1;
                         c = source_row.charAt(length);
                         if (c < '0' || c > '9') {
-                            warn_at(bundle.expected_number_a, line,
+                            warn_at('expected_number_a', line,
                                 from + length, c);
                         }
                         length += 1;
@@ -1685,7 +1685,7 @@ klass:              do {
                             }
                         }
                         if (source_row.charAt(length) !== '}') {
-                            warn_at(bundle.expected_a_b, line, from + length,
+                            warn_at('expected_a_b', line, from + length,
                                 '}', c);
                         } else {
                             length += 1;
@@ -1694,7 +1694,7 @@ klass:              do {
                             length += 1;
                         }
                         if (low > high) {
-                            warn_at(bundle.not_greater, line, from + length,
+                            warn_at('not_greater', line, from + length,
                                 low, high);
                         }
                         break;
@@ -1845,7 +1845,7 @@ klass:              do {
                         case '/':
                             if (token.id === '/=') {
                                 stop_at(
-                                    bundle.slash_equal,
+                                    'slash_equal',
                                     line,
                                     from
                                 );
@@ -2713,7 +2713,7 @@ klass:              do {
 
     function expected_relation(node, message) {
         if (node.assign) {
-            warn(message || bundle.conditional_assignment, node);
+            warn(message || 'conditional_assignment', node);
         }
         return node;
     }
@@ -2723,7 +2723,7 @@ klass:              do {
         case '[':
         case '-':
             if (node.arity !== 'infix') {
-                warn(message || bundle.weird_condition, node);
+                warn(message || 'weird_condition', node);
             }
             break;
         case 'false':
@@ -2740,14 +2740,14 @@ klass:              do {
         case '{':
         case '?':
         case '~':
-            warn(message || bundle.weird_condition, node);
+            warn(message || 'weird_condition', node);
             break;
         case '(':
             if (node.first.id === 'new' ||
                     (node.first.string === 'Boolean') ||
                     (node.first.id === '.' &&
                         numbery[node.first.second.string] === true)) {
-                warn(message || bundle.weird_condition, node);
+                warn(message || 'weird_condition', node);
             }
             break;
         }
@@ -4272,7 +4272,7 @@ klass:              do {
         this.arity = 'statement';
         this.first = expected_relation(expression(0));
         if (this.first.id !== 'true') {
-            expected_condition(this.first, bundle.unexpected_a);
+            expected_condition(this.first, 'unexpected_a');
         }
         no_space();
         step_out(')', paren);
@@ -4421,7 +4421,7 @@ klass:              do {
         step_in();
         no_space();
         edge();
-        this.first = expected_condition(expected_relation(expression(0)), bundle.unexpected_a);
+        this.first = expected_condition(expected_relation(expression(0)), 'unexpected_a');
         no_space();
         step_out(')', paren);
         funct['(breakage)'] -= 1;
@@ -4530,7 +4530,7 @@ klass:              do {
                 edge();
                 this.second = expected_relation(expression(0));
                 if (this.second.id !== 'true') {
-                    expected_condition(this.second, bundle.unexpected_a);
+                    expected_condition(this.second, 'unexpected_a');
                 }
                 semicolon(token);
                 if (next_token.id === ';') {
