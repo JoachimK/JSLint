@@ -1,4 +1,4 @@
-This is a fork of 
+This is a fork of
 
 *JSLint, The JavaScript Code Quality Tool*
 
